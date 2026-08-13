@@ -66,7 +66,7 @@
   .kicker.on-dark{color:var(--cream)}
   .kicker .rule{display:block;width:52px;height:2px;background:var(--gold);margin-top:12px}
 
-  .lead{font-size:16.5px;line-height:1.85;color:var(--ink-muted);font-weight:300}
+  .lead{font-size:16.5px;line-height:1.85;color:var(--ink-muted);font-weight:300;text-align:justify;text-align-last:left}
   .lead.on-dark{color:var(--cream-muted)}
   .lead b{color:var(--ink);font-weight:500}
   .lead.on-dark b{color:var(--cream);font-weight:500}
@@ -144,8 +144,13 @@
   /* ---------- HERO ---------- */
   .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start;
         background:#1b1712;overflow:hidden}
-  .hero .bg{position:absolute;inset:0;background:url('assets/hero.jpg?v=2') center top / 105% auto no-repeat}
-  .hero .bg::after{content:"";position:absolute;inset:0;
+  .hero .bg{position:absolute;inset:0;overflow:hidden;background:#1b1712}
+  /* blurred copy fills the whole hero so the contained image never leaves empty bars */
+  .hero .hero-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+        filter:blur(30px) brightness(.7) saturate(1.06);transform:scale(1.16)}
+  /* crisp, full building image on top (object-fit: cover of the visible frame, contained so nothing is cropped) */
+  .hero .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;z-index:1}
+  .hero .bg::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
         background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.12) 34%,rgba(0,0,0,.05) 62%,rgba(0,0,0,.25) 100%)}
   .hero .plogo{position:relative;z-index:20;align-self:flex-end;margin:clamp(104px,15vh,168px) var(--pad) 0 0;
         width:min(66vw,500px);padding:clamp(18px,2.4vw,30px);
@@ -498,7 +503,10 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <div class="bg"></div>
+  <div class="bg">
+    <img class="hero-fill" src="assets/hero2.jpg" alt="" aria-hidden="true">
+    <img class="hero-img" src="assets/hero2.jpg" alt="Hyatt House The Woodlands / Shenandoah exterior">
+  </div>
   <div class="plogo"><img src="assets/property-logo.svg" alt="Hyatt House The Woodlands / Shenandoah"></div>
   <span class="cue" aria-hidden="true">
     <svg viewBox="0 0 28 42" width="28" height="42" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
@@ -513,7 +521,7 @@
 <section class="section overview" id="overview">
   <div class="wrap">
     <p class="kicker" style="justify-content:center;text-align:center">Investment Overview<span class="rule" style="margin:12px auto 0"></span></p>
-    <p class="lead">Hodges Ward Elliott (“HWE”) is pleased to present the opportunity to acquire the 2021-built, 148-key Hyatt House The Woodlands / Shenandoah (the “Hotel” or “Property”), situated within a luxury mixed-use development in one of the most desirable and affluent submarkets in the country. The Woodlands, ranked the <b>#3 Best City to Live in America</b>, is an award-winning, master-planned, infill community that continues to attract top-tier companies, retailers, and lifestyle amenities, leading to one of the strongest performing lodging submarkets in Houston. As the newest extended-stay hotel, the Hyatt House is positioned to take advantage of it all, just minutes from a dense concentration of renowned healthcare campuses and surrounded by over 21 million square feet of office/retail space (three-mile radius). Supported by a balanced mix of corporate, healthcare, and leisure demand, the Hotel is a compelling opportunity to acquire a high-quality asset in one of Texas’ most desirable submarkets.</p>
+    <p class="lead">Hodges Ward Elliott (“HWE”) is pleased to present the opportunity to acquire the 2021-built, 148-key Hyatt House The Woodlands / Shenandoah (the “Hotel” or “Property”), situated within a luxury mixed-use development in one of the most desirable and affluent submarkets in the country. The Woodlands, ranked the <b>#3 Best City to Live in America</b>, is an award-winning, master-planned, infill community that continues to attract top-tier companies, retailers, and lifestyle amenities, leading to one of the strongest performing lodging submarkets in Houston. As the newest extended-stay hotel, the Hyatt House is positioned to take advantage of it all, just minutes from a dense concentration of renowned healthcare campuses and surrounded by over 21 million square feet of office / retail space (three-mile radius). Supported by a balanced mix of corporate, healthcare, and leisure demand, the Hotel is a compelling opportunity to acquire a high-quality asset in one of Texas’ most desirable submarkets.</p>
     <div class="btn-row" style="margin-top:44px">
       <a class="btn" href="#" data-ca="sign">Sign Confidentiality Agreement</a>
       <a class="btn" href="#" data-ca="download">Download Confidentiality Agreement</a>
@@ -596,8 +604,8 @@
       <div class="stat"><img src="assets/affluent-01.png" alt="#3 Best City to Live in America — Niche, 2026"></div>
       <div class="stat"><img src="assets/affluent-02.png" alt="#2 Best City to Raise a Family in America — Niche, 2026"></div>
       <div class="stat"><img src="assets/affluent-03.png" alt="#4 Cities with the Best Public Schools in America — Niche, 2026"></div>
-      <div class="stat"><img src="assets/affluent-04.png" alt="140,701 Median Household Income"></div>
-      <div class="stat"><img src="assets/affluent-05.png" alt="511,700 Median Value of Owner-Occupied Housing"></div>
+      <div class="stat"><img src="assets/affluent-04-v2.png" alt="140,701 Median Household Income"></div>
+      <div class="stat"><img src="assets/affluent-05-v2.png" alt="511,700 Median Value of Owner-Occupied Housing"></div>
     </div>
 
     <div class="mgrid">
