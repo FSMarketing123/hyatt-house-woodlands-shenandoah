@@ -198,6 +198,13 @@
   .band{background:var(--band)}
   .loc-logos{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:26px 44px;margin-top:30px;align-items:center}
   .mapsection{position:relative;z-index:1;background:#3A322D;padding:clamp(30px,4.5vh,54px) clamp(8px,1vw,18px)}
+  /* "pending" frosted-glass overlay covering the entire map + table */
+  .loc-map-grid::after,.med-map-grid::after{content:"Aerial / Map - Pending";position:absolute;inset:0;z-index:50;
+        display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px;
+        background:rgba(150,157,161,.38);
+        -webkit-backdrop-filter:blur(16px) saturate(1.05);backdrop-filter:blur(16px) saturate(1.05);
+        color:#2b2521;text-shadow:0 1px 2px rgba(255,255,255,.45);
+        font-family:var(--font-cormorant);font-weight:500;font-size:clamp(26px,5.5vw,44px);letter-spacing:.02em}
   .loc-map-grid{display:grid;grid-template-columns:minmax(0,2.7fr) minmax(300px,.8fr);gap:clamp(12px,1.2vw,18px);align-items:stretch;max-width:none;margin:0}
   .loc-logos .ll{font-family:var(--font-cormorant);color:#2f2a26;line-height:1.1}
   .loc-logos .ll .big{font-size:23px;font-weight:600;letter-spacing:.01em;display:block}
@@ -314,7 +321,7 @@
   .medtable tbody tr[data-lat]:hover{background:rgba(197,138,61,.16)}
   .medtable tbody tr.active{background:rgba(197,138,61,.24)}
   /* healthcare corridor map + table section */
-  .med-map-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(12px,1.4vw,20px);align-items:stretch;max-width:1720px;margin:0 auto}
+  .med-map-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(12px,1.4vw,20px);align-items:stretch;max-width:1720px;margin:0 auto}
   #medical-map{width:100%;min-height:520px;z-index:1;background:#dfe3e0}
   .med-table-panel{display:flex;flex-direction:column;justify-content:flex-start;min-width:0}
   .med-note{font-size:11.5px;color:var(--cream-muted);margin:14px auto 0;line-height:1.6;max-width:1720px}
@@ -506,7 +513,7 @@
 <section class="section overview" id="overview">
   <div class="wrap">
     <p class="kicker" style="justify-content:center;text-align:center">Investment Overview<span class="rule" style="margin:12px auto 0"></span></p>
-    <p class="lead">Hodges Ward Elliott (“HWE”) is pleased to present the opportunity to acquire the 2021-built, 148-key Hyatt House The Woodlands / Shenandoah (the “Hotel” or “Property”), situated within a luxury mixed-use development in one of the most desirable and affluent submarkets in the country. The Woodlands, ranked the <b>#3 Best City to Live in America</b>, is an award-winning, master-planned, infill community that continues to attract top-tier companies, retailers, and lifestyle amenities, leading to one of the strongest performing lodging submarkets in Houston. As the newest extended-stay hotel, the Hyatt House is positioned to take advantage of it all, just minutes from a dense concentration of renowned healthcare campuses and surrounded by over 21 million square feet of office/retail space (three-mile radius). Supported by a balanced mix of corporate, healthcare, and leisure demand, the Hotel is a compelling opportunity to acquire a high-quality asset in one of Houston’s most resilient markets.</p>
+    <p class="lead">Hodges Ward Elliott (“HWE”) is pleased to present the opportunity to acquire the 2021-built, 148-key Hyatt House The Woodlands / Shenandoah (the “Hotel” or “Property”), situated within a luxury mixed-use development in one of the most desirable and affluent submarkets in the country. The Woodlands, ranked the <b>#3 Best City to Live in America</b>, is an award-winning, master-planned, infill community that continues to attract top-tier companies, retailers, and lifestyle amenities, leading to one of the strongest performing lodging submarkets in Houston. As the newest extended-stay hotel, the Hyatt House is positioned to take advantage of it all, just minutes from a dense concentration of renowned healthcare campuses and surrounded by over 21 million square feet of office/retail space (three-mile radius). Supported by a balanced mix of corporate, healthcare, and leisure demand, the Hotel is a compelling opportunity to acquire a high-quality asset in one of Texas’ most desirable submarkets.</p>
     <div class="btn-row" style="margin-top:44px">
       <a class="btn" href="#" data-ca="sign">Sign Confidentiality Agreement</a>
       <a class="btn" href="#" data-ca="download">Download Confidentiality Agreement</a>
@@ -554,7 +561,7 @@
 <section class="section band" id="location">
   <div class="wrap">
     <div class="charblock">
-      <p class="kicker on-dark">Exceptional Location<span class="rule"></span></p>
+      <p class="kicker on-dark">Exceptional Mixed-Use Location<span class="rule"></span></p>
       <p class="lead on-dark">The Hotel is located within the 70-acre Metropark Square mixed-use development, home to ample dining, shopping, entertainment, and residences, with direct access to Interstate 45. This strategic location is in the heart of the area’s medical and commercial corridor, positioned near a multitude of major healthcare facilities and many of the area’s largest employers. In a three-mile radius of the Hotel, there are <b>over 1,200 hospital beds</b> and <b>over 21 million square feet of office / retail space</b>. Being adjacent to I-45, it also provides efficient connectivity to The Woodlands Town Center, Market Street, Woodlands Mall, Hughes Landing, Cynthia Woods Mitchell Pavilion, and the ExxonMobil corporate campus, while offering strong regional access to Conroe, Spring, North Houston, and the surrounding region, and being only 25 minutes away from George Bush Intercontinental Airport. These attributes align particularly well with the Hyatt House extended-stay product, which is positioned to capture a diversified mix of healthcare, corporate, relocation, project-based, and leisure demand.</p>
     </div>
     <div class="loc-imgs">
@@ -582,7 +589,7 @@
   <div class="wrap">
     <div class="charblock">
       <p class="kicker on-dark">The Woodlands — Affluent &amp; Attractive Submarket<span class="rule"></span></p>
-      <p class="lead on-dark">The Woodlands represents one of the most affluent and attractive submarkets in the entire country. Home to exceptional demographics, a deep corporate presence, thoughtful master-planned infrastructure, and world-renowned healthcare institutions, the Woodlands is consistently ranked as one of the top places to live (currently ranked the <b>#2 Best City to Raise a Family</b> and the <b>#3 Best City to Live in America</b>). Located approximately 30 miles north of Downtown Houston along I-45, the 28,500-acre community has evolved into a premier, self-contained, live-work-play destination. With a median household income of approximately $141,000, more than 1.5x the national average, the market benefits from a highly educated workforce and a diversified employment base spanning energy, healthcare, advanced manufacturing, and professional services. The community is also passionate about parks, greenspace, and natural beauty; according to the National Recreation and Parks Association, The Woodlands has 38.3 acres of open space per 1,000 residents, which is 74% above the national average. With limited developable land, disciplined zoning, and a pro-business municipal framework, The Woodlands offers both top-line revenue stability and long-term real estate value preservation.</p>
+      <p class="lead on-dark">The Woodlands represents one of the most affluent and attractive submarkets in the entire country. Home to exceptional demographics, a deep corporate presence, thoughtful master-planned infrastructure, and world-renowned healthcare institutions, The Woodlands is consistently ranked as one of the top places to live (currently ranked the <b>#2 Best City to Raise a Family</b> and the <b>#3 Best City to Live in America</b>). Located approximately 30 miles north of Downtown Houston along I-45, the 28,500-acre community has evolved into a premier, self-contained, live-work-play destination. With a median household income of approximately $141,000, more than 1.5x the national average, the market benefits from a highly educated workforce and a diversified employment base spanning energy, healthcare, advanced manufacturing, and professional services. With limited developable land, disciplined zoning, and a pro-business municipal framework, The Woodlands offers both top-line revenue stability and long-term real estate value preservation.</p>
     </div>
 
     <div class="statrow statrow-img" style="grid-template-columns:repeat(5,1fr)">
@@ -656,7 +663,7 @@
     <div class="mshare-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.1vw,16px);align-items:stretch">
       <div class="charblock">
         <p class="kicker on-dark">Increasing Market Share<span class="rule"></span></p>
-        <p class="lead on-dark">Following its opening in 2021, the Hyatt House has continued to improve its competitive position within the market. Since 2023, the Hotel has consistently outperformed its competitive set on a RevPAR basis, achieving <b>RevPAR penetration above 114% in 2024, 2025, and the trailing twelve months ending in April 2026</b>. Strong occupancy has been the primary driver of this outperformance, with the opportunity to continue improving rate, margins, and net cash flow through targeted revenue and expense initiatives, while the Hotel continues to increase its market share.</p>
+        <p class="lead on-dark">Following its opening in 2021, the Hyatt House has continued to improve its competitive position within the market. Since 2023, the Hotel has consistently outperformed its competitive set on a RevPAR basis, achieving <b>RevPAR penetration above 113% in 2024, 2025, and 2026 T-12</b>. Strong occupancy has been the primary driver of this outperformance, with the opportunity to continue improving rate, margins, and net cash flow through targeted revenue and expense initiatives, while the Hotel continues to increase its market share.</p>
       </div>
       <div class="mshare-imgs">
         <div class="mi" style="background-image:url('assets/mshare-img1.jpg')"></div>
