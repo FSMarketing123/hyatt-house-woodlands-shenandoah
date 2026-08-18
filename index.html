@@ -317,7 +317,7 @@
   .med-map-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(12px,1.4vw,20px);align-items:stretch;max-width:1720px;margin:0 auto}
   #medical-map{width:100%;min-height:520px;z-index:1;background:#dfe3e0}
   .med-table-panel{display:flex;flex-direction:column;justify-content:flex-start;min-width:0}
-  .med-note{font-size:11.5px;color:var(--cream-muted);margin:14px auto 0;line-height:1.6;max-width:1720px}
+  .med-note{font-size:11.5px;color:var(--cream-muted);margin:12px 0 0;line-height:1.6}
   @media(max-width:900px){.med-map-grid{grid-template-columns:1fr}#medical-map{min-height:60vh}}
 
   /* two-column media/text */
@@ -524,24 +524,24 @@
     <div class="med-table-panel">
       <div class="med-scroll">
       <table class="medtable">
-        <thead><tr><th class="num-h">#</th><th>Hospital Campus</th><th class="num">Beds</th><th class="num">Square Feet</th><th class="num">Distance</th><th class="num">Employees</th></tr></thead>
+        <thead><tr><th class="num-h">#</th><th>Hospital Campus</th><th class="num">Beds</th><th class="num">Square Feet</th><th class="num">Distance</th><th class="num">Employees*</th></tr></thead>
         <tbody>
-          <tr data-lat="30.1690" data-lng="-95.4720" data-n="1"><td class="mn">1</td><td>Memorial Hermann - The Woodlands Medical Center</td><td class="num">457</td><td class="num">1,069,394</td><td class="num">1.9 mi</td><td class="num">3,300</td></tr>
-          <tr data-lat="30.1717" data-lng="-95.4560" data-n="2"><td class="mn">2</td><td>Houston Methodist - The Woodlands Hospital</td><td class="num">293</td><td class="num">470,000</td><td class="num">1.1 mi</td><td class="num">2,937</td></tr>
-          <tr data-lat="30.1640" data-lng="-95.4650" data-n="3"><td class="mn">3</td><td>St. Luke’s Health - The Woodlands Hospital</td><td class="num">242</td><td class="num">582,792</td><td class="num">2.0 mi</td><td class="num">2,412</td></tr>
-          <tr data-lat="30.1500" data-lng="-95.4525" data-n="4"><td class="mn">4</td><td>Encompass Health Rehabilitation Hospital of The Woodlands</td><td class="num">84</td><td class="num">125,389</td><td class="num">2.7 mi</td><td class="num">—</td></tr>
-          <tr data-lat="30.1660" data-lng="-95.4570" data-n="5"><td class="mn">5</td><td>Texas Children’s Hospital - The Woodlands</td><td class="num">60</td><td class="num">587,000</td><td class="num">1.7 mi</td><td class="num">1,526</td></tr>
-          <tr data-lat="30.1560" data-lng="-95.4520" data-n="6"><td class="mn">6</td><td>Encompass Health Rehabilitation Hospital Vision Park</td><td class="num">60</td><td class="num">65,871</td><td class="num">2.6 mi</td><td class="num">—</td></tr>
-          <tr data-lat="30.1566" data-lng="-95.4508" data-n="7"><td class="mn">7</td><td>Nexus Children’s Hospital - Shenandoah</td><td class="num">50</td><td class="num">40,000</td><td class="num">2.8 mi</td><td class="num">155</td></tr>
-          <tr data-lat="30.1692" data-lng="-95.4632" data-n="8"><td class="mn">8</td><td>Nexus Children’s Hospital - The Woodlands</td><td class="num">21</td><td class="num">12,809</td><td class="num">2.4 mi</td><td class="num">65</td></tr>
-          <tr data-lat="30.1470" data-lng="-95.4560" data-n="9"><td class="mn">9</td><td>UT MD Anderson Outpatient Cancer Center - The Woodlands</td><td class="num">17</td><td class="num">208,000</td><td class="num">3.0 mi</td><td class="num">—</td></tr>
+          <tr data-lat="30.1739805" data-lng="-95.4535942" data-n="1"><td class="mn">1</td><td>Memorial Hermann - The Woodlands Medical Center</td><td class="num">457</td><td class="num">1,069,394</td><td class="num">1.9 mi</td><td class="num">3,300</td></tr>
+          <tr data-lat="30.2058123" data-lng="-95.4535176" data-n="2"><td class="mn">2</td><td>Houston Methodist - The Woodlands Hospital</td><td class="num">293</td><td class="num">470,000</td><td class="num">1.1 mi</td><td class="num">2,937</td></tr>
+          <tr data-lat="30.2059125" data-lng="-95.458621" data-n="3"><td class="mn">3</td><td>St. Luke’s Health - The Woodlands Hospital</td><td class="num">242</td><td class="num">582,792</td><td class="num">2.0 mi</td><td class="num">2,412</td></tr>
+          <tr data-lat="30.1859139" data-lng="-95.454421" data-n="4"><td class="mn">4</td><td>Encompass Health Rehabilitation Hospital of The Woodlands</td><td class="num">84</td><td class="num">125,389</td><td class="num">2.7 mi</td><td class="num">—</td></tr>
+          <tr data-lat="30.2013453" data-lng="-95.4574926" data-n="5"><td class="mn">5</td><td>Texas Children’s Hospital - The Woodlands</td><td class="num">60</td><td class="num">587,000</td><td class="num">1.7 mi</td><td class="num">1,526</td></tr>
+          <tr data-lat="30.1901005" data-lng="-95.4584965" data-n="6"><td class="mn">6</td><td>Encompass Health Rehabilitation Hospital Vision Park</td><td class="num">60</td><td class="num">65,871</td><td class="num">2.6 mi</td><td class="num">—</td></tr>
+          <tr data-lat="30.1888028" data-lng="-95.4603369" data-n="7"><td class="mn">7</td><td>Nexus Children’s Hospital - Shenandoah</td><td class="num">50</td><td class="num">40,000</td><td class="num">2.8 mi</td><td class="num">155</td></tr>
+          <tr data-lat="30.1723542" data-lng="-95.4606589" data-n="8"><td class="mn">8</td><td>Nexus Children’s Hospital - The Woodlands</td><td class="num">21</td><td class="num">12,809</td><td class="num">2.4 mi</td><td class="num">65</td></tr>
+          <tr data-lat="30.2056897" data-lng="-95.4762557" data-n="9"><td class="mn">9</td><td>UT MD Anderson Outpatient Cancer Center - The Woodlands</td><td class="num">17</td><td class="num">208,000</td><td class="num">3.0 mi</td><td class="num">—</td></tr>
           <tr class="total"><td></td><td>Total — all within 3 miles</td><td class="num">1,284</td><td class="num">3,161,255</td><td class="num">—</td><td class="num">10,395</td></tr>
         </tbody>
       </table>
       </div>
+      <p class="med-note">*Employee counts were not publicly available for all hospitals.</p>
     </div>
   </div>
-  <p class="med-note">*Employee counts were not publicly available for all hospitals. Distances measured from the Hotel; all campuses lie within the 3-mile radius shown on the map.</p>
 </section>
 
 <!-- ============ INCREASING MARKET SHARE ============ -->
@@ -652,22 +652,22 @@
     {n:11, nm:"The Woodlands Mall", d:"2.4", lat:30.1643612, lng:-95.4539757},
     {n:12, nm:"Nexus Children's Hospital - The Woodlands", d:"2.4", lat:30.1723542, lng:-95.4606589},
     {n:13, nm:"Entergy", d:"2.6", lat:30.1759966, lng:-95.4699992},
-    {n:14, nm:"Encompass Health Rehab Hospital Vision Park", d:"2.6", lat:30.1901005, lng:-95.4584965},
-    {n:15, nm:"Encompass Health Rehab Hospital of The Woodlands", d:"2.7", lat:30.1859139, lng:-95.454421},
+    {n:14, nm:"Encompass Health Rehabilitation Hospital Vision Park", d:"2.6", lat:30.1901005, lng:-95.4584965},
+    {n:15, nm:"Encompass Health Rehabilitation Hospital of The Woodlands", d:"2.7", lat:30.1859139, lng:-95.454421},
     {n:16, nm:"Nexus Children's Hospital - Shenandoah", d:"2.8", lat:30.1888028, lng:-95.4603369},
-    {n:17, nm:"Occidental Petroleum Company", d:"2.9", lat:30.1602974, lng:-95.45337},
-    {n:18, nm:"Beusa Energy", d:"2.9", lat:30.1572508, lng:-95.4632129},
-    {n:19, nm:"UT MD Anderson Outpatient Cancer Center", d:"3.0", lat:30.2056897, lng:-95.4762557},
-    {n:20, nm:"Waste Connections", d:"3.1", lat:30.1609214, lng:-95.4562403},
-    {n:21, nm:"Woodlands Waterway & Hughes Landing", d:"3.1", lat:30.1710887, lng:-95.4717842},
-    {n:22, nm:"Town Green Park", d:"3.1", lat:30.1617206, lng:-95.466142},
-    {n:23, nm:"Cynthia Woods Mitchell Pavilion", d:"3.1", lat:30.1614265, lng:-95.4640655},
-    {n:24, nm:"Excelerate Energy", d:"3.1", lat:30.1731237, lng:-95.4734445},
-    {n:25, nm:"Huntsman Corporation", d:"3.1", lat:30.1596901, lng:-95.4561671},
-    {n:26, nm:"Northwestern Mutual", d:"3.1", lat:30.1735251, lng:-95.4741693},
-    {n:27, nm:"Chevron Phillips", d:"3.2", lat:30.1721239, lng:-95.4746216},
-    {n:28, nm:"Market Street", d:"3.3", lat:30.1639822, lng:-95.4618036},
-    {n:29, nm:"McKesson", d:"3.3", lat:30.160317, lng:-95.4552148},
+    {n:17, nm:"Market Street", d:"2.9", lat:30.1639822, lng:-95.4618036},
+    {n:18, nm:"Occidental Petroleum Company", d:"2.9", lat:30.1602974, lng:-95.45337},
+    {n:19, nm:"Beusa Energy", d:"2.9", lat:30.1572508, lng:-95.4632129},
+    {n:20, nm:"UT MD Anderson Outpatient Cancer Center - The Woodlands", d:"3.0", lat:30.2056897, lng:-95.4762557},
+    {n:21, nm:"Waste Connections", d:"3.1", lat:30.1609214, lng:-95.4562403},
+    {n:22, nm:"Huntsman Corporation", d:"3.1", lat:30.1596901, lng:-95.4561671},
+    {n:23, nm:"McKesson", d:"3.1", lat:30.160317, lng:-95.4552148},
+    {n:24, nm:"The Woodlands Waterway and Hughes Landing", d:"3.1", lat:30.1710887, lng:-95.4717842},
+    {n:25, nm:"Town Green Park", d:"3.1", lat:30.1617206, lng:-95.466142},
+    {n:26, nm:"Cynthia Woods Mitchell Pavilion", d:"3.1", lat:30.1614265, lng:-95.4640655},
+    {n:27, nm:"Excelerate Energy", d:"3.1", lat:30.1731237, lng:-95.4734445},
+    {n:28, nm:"Northwestern Mutual", d:"3.1", lat:30.1735251, lng:-95.4741693},
+    {n:29, nm:"Chevron Phillips", d:"3.2", lat:30.1721239, lng:-95.4746216},
     {n:30, nm:"Northshore Park", d:"3.5", lat:30.1692536, lng:-95.4756827},
     {n:31, nm:"Woodforest Bank Office", d:"5.9", lat:30.1297183, lng:-95.4592055},
     {n:32, nm:"ExxonMobil Global Headquarters", d:"7.8", lat:30.1032818, lng:-95.4463252},
