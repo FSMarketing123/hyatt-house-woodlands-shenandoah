@@ -198,13 +198,6 @@
   .band{background:var(--band)}
   .loc-logos{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:26px 44px;margin-top:30px;align-items:center}
   .mapsection{position:relative;z-index:1;background:#3A322D;padding:clamp(30px,4.5vh,54px) clamp(8px,1vw,18px)}
-  /* "pending" frosted-glass overlay covering the entire map + table */
-  .loc-map-grid::after,.med-map-grid::after{content:"Aerial / Map - Pending";position:absolute;inset:0;z-index:50;
-        display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px;
-        background:rgba(150,157,161,.38);
-        -webkit-backdrop-filter:blur(16px) saturate(1.05);backdrop-filter:blur(16px) saturate(1.05);
-        color:#2b2521;text-shadow:0 1px 2px rgba(255,255,255,.45);
-        font-family:var(--font-cormorant);font-weight:500;font-size:clamp(26px,5.5vw,44px);letter-spacing:.02em}
   .loc-map-grid{display:grid;grid-template-columns:minmax(0,2.7fr) minmax(300px,.8fr);gap:clamp(12px,1.2vw,18px);align-items:stretch;max-width:none;margin:0}
   .loc-logos .ll{font-family:var(--font-cormorant);color:#2f2a26;line-height:1.1}
   .loc-logos .ll .big{font-size:23px;font-weight:600;letter-spacing:.01em;display:block}
@@ -644,41 +637,41 @@
 <!-- ============ SCRIPTS ============ -->
 <script>
   // Demand drivers (# matches the OM table). lat/lng present => clickable & mapped.
-  var HOTEL = { name:"Hyatt House The Woodlands / Shenandoah", lat:30.1786, lng:-95.4525 };
+  var HOTEL = { name:"Hyatt House The Woodlands / Shenandoah", lat:30.1944246, lng:-95.4487141 };
   var GEN = [
-    {n:1,  nm:"Metropark Square",                                    d:"Adjacent", lat:30.1780, lng:-95.4522},
-    {n:2,  nm:"Portofino Shopping Center",                           d:"0.8",      lat:30.1870, lng:-95.4555},
-    {n:3,  nm:"Woodforest Bank Stadium",                             d:"1.0",      lat:30.2115, lng:-95.4200},
-    {n:4,  nm:"Conroe ISD Natatorium",                               d:"1.0",      lat:30.2108, lng:-95.4232},
-    {n:5,  nm:"Houston Methodist - The Woodlands Hospital",          d:"1.1",      lat:30.1717, lng:-95.4560},
-    {n:6,  nm:"Texas Children's Hospital - The Woodlands",           d:"1.7",      lat:30.1660, lng:-95.4570},
-    {n:7,  nm:"Memorial Hermann - The Woodlands Medical Center",     d:"1.9",      lat:30.1690, lng:-95.4720},
-    {n:8,  nm:"St. Luke's Health - The Woodlands Hospital",          d:"2.0",      lat:30.1640, lng:-95.4650},
-    {n:9,  nm:"Pinecroft Medical Plaza",                             d:"2.1",      lat:30.1675, lng:-95.4705},
-    {n:10, nm:"Lone Star College Montgomery",                        d:"2.2",      lat:30.1930, lng:-95.4890},
-    {n:11, nm:"The Woodlands Mall",                                  d:"2.4",      lat:30.1665, lng:-95.4595},
-    {n:12, nm:"Nexus Children's Hospital - The Woodlands",           d:"2.4",      lat:30.1692, lng:-95.4632},
-    {n:13, nm:"Entergy",                                             d:"2.6",      lat:30.1600, lng:-95.4585},
-    {n:14, nm:"Encompass Health Rehab Hospital Vision Park",         d:"2.6",      lat:30.1560, lng:-95.4520},
-    {n:15, nm:"Encompass Health Rehab Hospital of The Woodlands",    d:"2.7",      lat:30.1500, lng:-95.4525},
-    {n:16, nm:"Nexus Children's Hospital - Shenandoah",              d:"2.8",      lat:30.1566, lng:-95.4508},
-    {n:17, nm:"Occidental Petroleum Company",                        d:"2.9",      lat:30.1702, lng:-95.4558},
-    {n:18, nm:"Beusa Energy",                                        d:"2.9",      lat:30.1632, lng:-95.4502},
-    {n:19, nm:"UT MD Anderson Outpatient Cancer Center",            d:"3.0",      lat:30.1470, lng:-95.4560},
-    {n:20, nm:"Waste Connections",                                   d:"3.1",      lat:30.1686, lng:-95.4626},
-    {n:21, nm:"Woodlands Waterway & Hughes Landing",                 d:"3.1",      lat:30.1690, lng:-95.4665},
-    {n:22, nm:"Town Green Park",                                     d:"3.1",      lat:30.1682, lng:-95.4586},
-    {n:23, nm:"Cynthia Woods Mitchell Pavilion",                     d:"3.1",      lat:30.1615, lng:-95.4680},
-    {n:24, nm:"Excelerate Energy",                                   d:"3.1",      lat:30.1876, lng:-95.4928},
-    {n:25, nm:"Huntsman Corporation",                                d:"3.1",      lat:30.1748, lng:-95.4622},
-    {n:26, nm:"Northwestern Mutual",                                 d:"3.1",      lat:30.1662, lng:-95.4552},
-    {n:27, nm:"Chevron Phillips",                                    d:"3.2",      lat:30.1730, lng:-95.4638},
-    {n:28, nm:"Market Street",                                       d:"3.3",      lat:30.1640, lng:-95.4620},
-    {n:29, nm:"McKesson",                                            d:"3.3",      lat:30.1758, lng:-95.4616},
-    {n:30, nm:"Northshore Park",                                     d:"3.5",      lat:30.1786, lng:-95.4856},
-    {n:31, nm:"Woodforest Bank Office",                              d:"5.9",      lat:30.1420, lng:-95.5120},
-    {n:32, nm:"ExxonMobil Global Headquarters",                      d:"7.8",      lat:30.0475, lng:-95.4180},
-    {n:33, nm:"George Bush Intercontinental Airport",               d:"21.6",     lat:29.9902, lng:-95.3368}
+    {n:1, nm:"Metropark Square", d:"Adjacent", lat:30.1950854, lng:-95.4511066},
+    {n:2, nm:"Portofino Shopping Center", d:"0.8", lat:30.1848059, lng:-95.4508251},
+    {n:3, nm:"Woodforest Bank Stadium", d:"1.0", lat:30.1858243, lng:-95.4467887},
+    {n:4, nm:"Conroe ISD Natatorium", d:"1.0", lat:30.1849239, lng:-95.4467371},
+    {n:5, nm:"Houston Methodist - The Woodlands Hospital", d:"1.1", lat:30.2058123, lng:-95.4535176},
+    {n:6, nm:"Texas Children's Hospital - The Woodlands", d:"1.7", lat:30.2013453, lng:-95.4574926},
+    {n:7, nm:"Memorial Hermann - The Woodlands Medical Center", d:"1.9", lat:30.1739805, lng:-95.4535942},
+    {n:8, nm:"St. Luke's Health - The Woodlands Hospital", d:"2.0", lat:30.2059125, lng:-95.458621},
+    {n:9, nm:"Pinecroft Medical Plaza", d:"2.1", lat:30.1736451, lng:-95.457555},
+    {n:10, nm:"Lone Star College Montgomery", d:"2.2", lat:30.2103106, lng:-95.4682838},
+    {n:11, nm:"The Woodlands Mall", d:"2.4", lat:30.1643612, lng:-95.4539757},
+    {n:12, nm:"Nexus Children's Hospital - The Woodlands", d:"2.4", lat:30.1723542, lng:-95.4606589},
+    {n:13, nm:"Entergy", d:"2.6", lat:30.1759966, lng:-95.4699992},
+    {n:14, nm:"Encompass Health Rehab Hospital Vision Park", d:"2.6", lat:30.1901005, lng:-95.4584965},
+    {n:15, nm:"Encompass Health Rehab Hospital of The Woodlands", d:"2.7", lat:30.1859139, lng:-95.454421},
+    {n:16, nm:"Nexus Children's Hospital - Shenandoah", d:"2.8", lat:30.1888028, lng:-95.4603369},
+    {n:17, nm:"Occidental Petroleum Company", d:"2.9", lat:30.1602974, lng:-95.45337},
+    {n:18, nm:"Beusa Energy", d:"2.9", lat:30.1572508, lng:-95.4632129},
+    {n:19, nm:"UT MD Anderson Outpatient Cancer Center", d:"3.0", lat:30.2056897, lng:-95.4762557},
+    {n:20, nm:"Waste Connections", d:"3.1", lat:30.1609214, lng:-95.4562403},
+    {n:21, nm:"Woodlands Waterway & Hughes Landing", d:"3.1", lat:30.1710887, lng:-95.4717842},
+    {n:22, nm:"Town Green Park", d:"3.1", lat:30.1617206, lng:-95.466142},
+    {n:23, nm:"Cynthia Woods Mitchell Pavilion", d:"3.1", lat:30.1614265, lng:-95.4640655},
+    {n:24, nm:"Excelerate Energy", d:"3.1", lat:30.1731237, lng:-95.4734445},
+    {n:25, nm:"Huntsman Corporation", d:"3.1", lat:30.1596901, lng:-95.4561671},
+    {n:26, nm:"Northwestern Mutual", d:"3.1", lat:30.1735251, lng:-95.4741693},
+    {n:27, nm:"Chevron Phillips", d:"3.2", lat:30.1721239, lng:-95.4746216},
+    {n:28, nm:"Market Street", d:"3.3", lat:30.1639822, lng:-95.4618036},
+    {n:29, nm:"McKesson", d:"3.3", lat:30.160317, lng:-95.4552148},
+    {n:30, nm:"Northshore Park", d:"3.5", lat:30.1692536, lng:-95.4756827},
+    {n:31, nm:"Woodforest Bank Office", d:"5.9", lat:30.1297183, lng:-95.4592055},
+    {n:32, nm:"ExxonMobil Global Headquarters", d:"7.8", lat:30.1032818, lng:-95.4463252},
+    {n:33, nm:"George Bush Intercontinental Airport", d:"21.6", lat:29.9931058, lng:-95.3416255}
   ];
 
   // Build the demand table
@@ -848,17 +841,17 @@
     var el = document.getElementById("medical-map");
     if (!el) return;
     if (typeof L === "undefined"){ el.className = "map-fallback"; el.textContent = "Healthcare corridor map"; return; }
-    var HOTEL = { name:"Hyatt House The Woodlands / Shenandoah", lat:30.1786, lng:-95.4525 };
+    var HOTEL = { name:"Hyatt House The Woodlands / Shenandoah", lat:30.1944246, lng:-95.4487141 };
     var HOSP = [
-      {n:1, nm:"Memorial Hermann - The Woodlands Medical Center",       d:"1.9", lat:30.1690, lng:-95.4720},
-      {n:2, nm:"Houston Methodist - The Woodlands Hospital",           d:"1.1", lat:30.1717, lng:-95.4560},
-      {n:3, nm:"St. Luke's Health - The Woodlands Hospital",           d:"2.0", lat:30.1640, lng:-95.4650},
-      {n:4, nm:"Encompass Health Rehab Hospital of The Woodlands",     d:"2.7", lat:30.1500, lng:-95.4525},
-      {n:5, nm:"Texas Children's Hospital - The Woodlands",            d:"1.7", lat:30.1660, lng:-95.4570},
-      {n:6, nm:"Encompass Health Rehab Hospital Vision Park",          d:"2.6", lat:30.1560, lng:-95.4520},
-      {n:7, nm:"Nexus Children's Hospital - Shenandoah",               d:"2.8", lat:30.1566, lng:-95.4508},
-      {n:8, nm:"Nexus Children's Hospital - The Woodlands",            d:"2.4", lat:30.1692, lng:-95.4632},
-      {n:9, nm:"UT MD Anderson Outpatient Cancer Center",              d:"3.0", lat:30.1470, lng:-95.4560}
+      {n:1, nm:"Memorial Hermann - The Woodlands Medical Center", d:"1.9", lat:30.1739805, lng:-95.4535942},
+      {n:2, nm:"Houston Methodist - The Woodlands Hospital", d:"1.1", lat:30.2058123, lng:-95.4535176},
+      {n:3, nm:"St. Luke's Health - The Woodlands Hospital", d:"2.0", lat:30.2059125, lng:-95.458621},
+      {n:4, nm:"Encompass Health Rehab Hospital of The Woodlands", d:"2.7", lat:30.1859139, lng:-95.454421},
+      {n:5, nm:"Texas Children's Hospital - The Woodlands", d:"1.7", lat:30.2013453, lng:-95.4574926},
+      {n:6, nm:"Encompass Health Rehab Hospital Vision Park", d:"2.6", lat:30.1901005, lng:-95.4584965},
+      {n:7, nm:"Nexus Children's Hospital - Shenandoah", d:"2.8", lat:30.1888028, lng:-95.4603369},
+      {n:8, nm:"Nexus Children's Hospital - The Woodlands", d:"2.4", lat:30.1723542, lng:-95.4606589},
+      {n:9, nm:"UT MD Anderson Outpatient Cancer Center", d:"3.0", lat:30.2056897, lng:-95.4762557}
     ];
     var map = L.map(el, { scrollWheelZoom:false, zoomControl:true }).setView([HOTEL.lat, HOTEL.lng], 12);
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
