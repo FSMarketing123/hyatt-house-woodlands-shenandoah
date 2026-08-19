@@ -244,6 +244,12 @@
   .hotel-callout img{width:160px;display:block}
   .hotel-callout::after{content:"";position:absolute;left:50%;bottom:-9px;transform:translateX(-50%);
         width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:9px solid #3A322D}
+  /* leader: dot at the property + horizontal line to a logo box on the right */
+  .hotel-leader{position:relative;padding-left:57px}
+  .hotel-leader::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+        width:11px;height:11px;border-radius:50%;background:#c58a3d;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45)}
+  .hotel-leader::after{content:"";position:absolute;left:12px;top:50%;transform:translateY(-50%);width:46px;height:2px;background:#c58a3d}
+  .hotel-leader .hotel-callout::after{display:none}
   .ring-label{font-family:var(--font-jost);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
         color:#b9833e;white-space:nowrap;text-align:center;text-shadow:0 1px 3px rgba(255,255,255,.85)}
   .map-reset a{font-size:17px;font-weight:700;line-height:26px;text-align:center;color:var(--char)}
@@ -747,7 +753,7 @@
 
     // hotel — star-in-circle always; property-logo callout appears when zoomed in
     var starIcon = L.divIcon({ className:"", html:'<div class="hotel-star">✦</div>', iconSize:[34,34], iconAnchor:[17,17] });
-    var logoIcon = L.divIcon({ className:"", html:'<div class="hotel-callout"><img src="assets/property-logo.svg" alt="Hyatt House The Woodlands / Shenandoah"></div>', iconSize:[196,110], iconAnchor:[98,110] });
+    var logoIcon = L.divIcon({ className:"", html:'<div class="hotel-leader"><div class="hotel-callout"><img src="assets/property-logo.svg" alt="Hyatt House The Woodlands / Shenandoah"></div></div>', iconSize:[249,104], iconAnchor:[8,52] });
     var hotelStar = L.marker([HOTEL.lat, HOTEL.lng], { icon: starIcon, zIndexOffset:1000 })
       .addTo(map).bindPopup("<b>"+HOTEL.name+"</b><br>18645 Residence Drive, Shenandoah, TX");
     var hotelLogo = L.marker([HOTEL.lat, HOTEL.lng], { icon: logoIcon, zIndexOffset:1300, interactive:false });
