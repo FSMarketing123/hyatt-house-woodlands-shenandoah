@@ -645,7 +645,7 @@
   // Demand drivers (# matches the OM table). lat/lng present => clickable & mapped.
   var HOTEL = { name:"Hyatt House The Woodlands / Shenandoah", lat:30.1944246, lng:-95.4487141 };
   var GEN = [
-    {n:1, nm:"Metropark Square", d:"Adjacent", lat:30.1950854, lng:-95.4511066},
+    {n:1, nm:"Metropark Square", d:"—", lat:30.1950854, lng:-95.4511066},
     {n:2, nm:"Portofino Shopping Center", d:"0.8", lat:30.1848059, lng:-95.4508251},
     {n:3, nm:"Woodforest Bank Stadium", d:"1.0", lat:30.1858243, lng:-95.4467887},
     {n:4, nm:"Conroe ISD Natatorium", d:"1.0", lat:30.1849239, lng:-95.4467371},
@@ -772,7 +772,7 @@
     });
 
     // fit bounds to local cluster (exclude far airport/exxon for default view)
-    var local = mapped.filter(function(g){ return g.d==="Adjacent" || parseFloat(g.d) <= 4; })
+    var local = mapped.filter(function(g){ return g.d==="—" || g.d==="Adjacent" || parseFloat(g.d) <= 4; })
                       .map(function(g){ return [g.lat, g.lng]; });
     local.push([HOTEL.lat, HOTEL.lng]);
     map.fitBounds(local, { padding:[60,60] });
