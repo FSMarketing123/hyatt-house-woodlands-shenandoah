@@ -203,8 +203,7 @@
   .loc-logos .ll{font-family:var(--font-cormorant);color:#2f2a26;line-height:1.1}
   .loc-logos .ll .big{font-size:23px;font-weight:600;letter-spacing:.01em;display:block}
   .loc-logos .ll .sm{font-family:var(--font-jost);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#4a453f;font-weight:500}
-  .loc-imgs{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.1vw,16px);margin-top:clamp(14px,1.8vw,24px)}
-  .loc-imgs .li{position:relative;background-size:cover;background-position:center;height:clamp(200px,18vw,280px);border-radius:2px}
+  .loc-aerial{width:100%;aspect-ratio:4500/3253;background-size:contain;background-repeat:no-repeat;background-position:center;border-radius:2px;margin-top:clamp(14px,1.8vw,24px)}
   .loc-imgs .li span{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;font-size:14px;letter-spacing:.04em;color:#fff;
         background:linear-gradient(0deg,rgba(0,0,0,.66),rgba(0,0,0,0))}
   @media(max-width:860px){.loc-imgs{grid-template-columns:repeat(2,1fr)}}
@@ -458,12 +457,7 @@
       <p class="kicker on-dark">Exceptional Mixed-Use Location<span class="rule"></span></p>
       <p class="lead on-dark">The Hotel is located within the 70-acre Metropark Square mixed-use development, home to ample dining, shopping, entertainment, and residences, with direct access to Interstate 45. This strategic location is in the heart of the area’s medical and commercial corridor, positioned near a multitude of major healthcare facilities and many of the area’s largest employers. In a three-mile radius of the Hotel, there are <b>over 1,200 hospital beds</b> and <b>over 21 million square feet of office / retail space</b>. Being adjacent to I-45, it also provides efficient connectivity to The Woodlands Town Center, Market Street, Woodlands Mall, Hughes Landing, Cynthia Woods Mitchell Pavilion, and the ExxonMobil corporate campus, while offering strong regional access to Conroe, Spring, North Houston, and the surrounding region, and being only 25 minutes away from George Bush Intercontinental Airport. These attributes align particularly well with the Hyatt House extended-stay product, which is positioned to capture a diversified mix of healthcare, corporate, relocation, project-based, and leisure demand.</p>
     </div>
-    <div class="loc-imgs">
-      <div class="li" style="background-image:url('assets/loc-metropark.webp')"><span>Metropark Square</span></div>
-      <div class="li" style="background-image:url('assets/loc-towncenter.jpg')"><span>The Woodlands Town Center</span></div>
-      <div class="li" style="background-image:url('assets/loc-waterwaysq.jpg')"><span>Waterway Square District</span></div>
-      <div class="li" style="background-image:url('assets/loc-corporate.jpg')"><span>Hughes Landing &amp; Corporate Towers</span></div>
-    </div>
+    <div class="loc-aerial" style="background-image:url('assets/loc-aerial.jpg')" role="img" aria-label="Aerial view of Hyatt House The Woodlands / Shenandoah and Metropark Square"></div>
   </div>
 </section>
 
@@ -801,7 +795,7 @@
 
   // Parallax-on-hover for all photo panels: smooth eased zoom + pan opposite the cursor.
   (function(){
-    var SEL = ".snap-photos .p, .mgrid .m, .imgband, .split .media, .mshare-imgs .mi, .hou2-sky, .hou2-cards .hc, .loc-imgs .li";
+    var SEL = ".snap-photos .p, .mgrid .m, .imgband, .split .media, .mshare-imgs .mi, .hou2-sky, .hou2-cards .hc";
     var EASE = "cubic-bezier(.16,1,.3,1)";   // smooth ease-out settle (in and out)
     var ZOOM = 1.14;
     document.querySelectorAll(SEL).forEach(function(el){
