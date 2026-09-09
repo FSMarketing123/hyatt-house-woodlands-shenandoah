@@ -166,7 +166,10 @@
   .overview .lead{max-width:940px;margin:0 auto;font-size:clamp(16px,1.4vw,18px);line-height:1.95}
 
   /* full-bleed image band */
-  .imgband{position:relative;z-index:1;height:clamp(320px,46vw,560px);background-size:cover;background-position:center}
+  .imgband{position:relative;z-index:1;height:clamp(320px,46vw,560px);background-size:cover;background-position:center;overflow:hidden}
+  /* scroll-zoom layer: the image moves on its own so the label stays put */
+  .imgband>.imgband-img{position:absolute;inset:0;background-size:cover;background-position:center;
+        transform-origin:center center;transform:scale(1);will-change:transform}
   .imgband.label::after{content:attr(data-label);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
         font-family:var(--font-cormorant);font-weight:300;font-size:clamp(30px,4.4vw,58px);color:#fff;
         letter-spacing:.01em;padding:22px 60px;background:rgba(40,35,31,.34);backdrop-filter:blur(4px);
@@ -840,6 +843,67 @@
         }, 640);
       });
     });
+  })();
+
+  // Scroll-linked zoom for the full-bleed image bands: the photo eases from
+  // 1x to ZOOM as the band travels through the viewport. Uses transform on an
+  // inserted layer (compositor-friendly) rather than animating background-size.
+  (function(){
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var bands = Array.prototype.slice.call(document.querySelectorAll(".imgband"));
+    if (!bands.length) return;
+
+    var ZOOM = 1.14;      // scale once the band has fully crossed the viewport
+    var visible = [];     // only bands on screen get measured on scroll
+    var ticking = false;
+
+    bands.forEach(function(el){
+      // move the inline background onto a child so the ::after label, which
+      // lives on the parent, is not scaled along with the photo.
+      var layer = document.createElement("div");
+      layer.className = "imgband-img";
+      layer.style.backgroundImage = el.style.backgroundImage || getComputedStyle(el).backgroundImage;
+      el.style.backgroundImage = "none";
+      el.insertBefore(layer, el.firstChild);
+      el._zoomLayer = layer;
+    });
+
+    function apply(el){
+      var r = el.getBoundingClientRect();
+      // 0 as the band's top edge enters from the bottom, 1 once it has fully exited the top
+      var p = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+      p = p < 0 ? 0 : (p > 1 ? 1 : p);
+      el._zoomLayer.style.transform = "scale(" + (1 + (ZOOM - 1) * p).toFixed(4) + ")";
+    }
+
+    function update(){
+      ticking = false;
+      visible.forEach(apply);
+    }
+
+    function onScroll(){
+      if (ticking || !visible.length) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+
+    if (typeof IntersectionObserver === "function"){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          var i = visible.indexOf(entry.target);
+          if (entry.isIntersecting && i === -1) visible.push(entry.target);
+          else if (!entry.isIntersecting && i !== -1) visible.splice(i, 1);
+        });
+        onScroll();
+      });
+      bands.forEach(function(el){ io.observe(el); });
+    } else {
+      visible = bands;
+    }
+
+    window.addEventListener("scroll", onScroll, {passive:true});
+    window.addEventListener("resize", onScroll, {passive:true});
+    bands.forEach(apply);   // set the starting scale for wherever the page loads
   })();
 
   // Healthcare corridor map — hotel star, 3-mile radius, hospital campus pins.
