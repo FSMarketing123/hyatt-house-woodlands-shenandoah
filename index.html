@@ -181,11 +181,12 @@
         display:flex;flex-direction:column;justify-content:center}
   .snap-card .plogo{width:270px;max-width:100%;margin:0 auto 32px;text-align:center}
   .snap-card .plogo img{width:100%}
-  .snap-cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1vw,14px)}
+  .snap-cards{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(10px,1vw,14px)}
   .snap-cards .sc{background:rgba(255,255,255,.038);border:1px solid rgba(244,240,227,.14);border-radius:10px;
         box-shadow:inset 0 1px 0 rgba(255,255,255,.05);padding:clamp(16px,1.6vw,22px) clamp(16px,1.6vw,22px);
-        display:flex;flex-direction:column;justify-content:flex-start;
+        display:flex;flex-direction:column;justify-content:flex-start;min-width:0;
         transition:border-color .25s ease,background .25s ease,transform .25s ease}
+  .snap-cards .val,.snap-cards .lbl{overflow-wrap:break-word;word-break:break-word}
   .snap-cards .sc.wide{grid-column:1/-1}
   .snap-cards .sc:hover{border-color:rgba(197,138,61,.55);background:rgba(197,138,61,.09);transform:translateY(-2px)}
   .snap-cards .val{font-size:clamp(18px,1.7vw,21px);line-height:1.25;color:var(--cream);font-weight:400}
